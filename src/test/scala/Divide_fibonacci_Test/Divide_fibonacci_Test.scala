@@ -12,7 +12,7 @@ class Divide_fibonacci_Test extends AnyFunSuite {
   test("Divide two numbers- where Divdiend=6 and Divisor= 2") {
     val expectedResult = 3
     val resultingValue = obj.divide(6, 2)
-    intercept(expectedResult == resultingValue)
+    assert(expectedResult == resultingValue)
   }
   test("Dividing a Number by 0 throws Arithmetic Exception") {
     intercept[ArithmeticException] {
@@ -25,7 +25,7 @@ class Divide_fibonacci_Test extends AnyFunSuite {
     val expectedResult = new ListBuffer[Int]
     expectedResult += (0,1,1,2,3)
     val resultingValue = obj.fibonacci(5)
-    intercept(expectedResult == resultingValue)
+    assert(expectedResult == resultingValue)
   }
 
   test("If No. of Terms in a Fibonacci Series is Negative it throws Exception"){

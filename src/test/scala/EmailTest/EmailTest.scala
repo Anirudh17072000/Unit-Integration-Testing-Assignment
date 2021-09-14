@@ -6,11 +6,11 @@ import org.scalatest.funsuite.AnyFunSuite
 class EmailTest extends AnyFunSuite{
 
   val email = new EmailCheck
-  test("Check Recipient's Name that it does not contain s"){
+  test("Check Recipient's Name that it does not contain Special Character"){
 
     val expectedValue = true
     val resultingValue = email.nameOfRecipient("anirudh8853@gmail.com")
-    intercept(resultingValue == expectedValue)
+    assert(resultingValue == expectedValue)
   }
 
   test("Recipient's Name with Special Characters throw  Exception"){
@@ -24,8 +24,8 @@ class EmailTest extends AnyFunSuite{
   test("Check '@' Symbol is present in the Email address"){
 
     val expectedValue= true
-    val resultingValue = email.checkTheSymbol("pramanikdipayan007@gmail.com")
-    intercept(resultingValue == expectedValue)
+    val resultingValue = email.checkTheSymbol("anirudh8853@gmail.com")
+    assert(resultingValue == expectedValue)
   }
 
 
@@ -56,14 +56,14 @@ class EmailTest extends AnyFunSuite{
   test("Check Top Level Domains "){
 
     val expectedValue= true
-    val resultingValue = email.topLevelDomain("anirudh8853@@gmail.com")
-    intercept(resultingValue == expectedValue)
+    val resultingValue = email.topLevelDomain("anirudh8853@gmail.com")
+    assert(resultingValue == expectedValue)
   }
 
   test("If Top Level Domain is not .net/.org/.com it throws Exception"){
 
     intercept[IllegalArgumentException]{
-      email.topLevelDomain("dipayan23@gmail.co.in")
+      email.topLevelDomain("anirudh8853@gmail.co.in")
     }
   }
 }
